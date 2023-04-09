@@ -64,3 +64,23 @@ if (firstMonth === 'August' || secondMoth === 'July') {
 } else {
     console.log('denied')
 }
+
+
+let person = {
+    salary: 1000,
+    age: 25,
+    info: [
+        'Sasha',
+        'SPB',
+        'Pushkina 2'
+    ]
+} 
+
+
+for (key in person) {
+    if (Array.isArray(person[key])) {
+      person[key].forEach(val => console.log(val));
+  } else {
+  console.log(`${key}: ${person[key]}`);
+   }
+  }
