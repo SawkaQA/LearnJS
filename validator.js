@@ -84,3 +84,5 @@ for (key in person) {
   console.log(`${key}: ${person[key]}`);
    }
   }
+
+  // Задачи с codewars (8ky)
