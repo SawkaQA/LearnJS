@@ -85,4 +85,32 @@ for (key in person) {
    }
   }
 
-  // Задачи с codewars (8ky)
+  // Калькулятор с помощью switch, с обработкой возможных ошибок
+
+let num1 = 11
+let num2 = 5
+let operator = '/'
+
+switch (operator) {
+    case '+':
+        result = num1 + num2
+        console.log('The result is ' + result)
+        break;
+    case '-':
+        result = num1 - num2
+        console.log('The result is ' + result)
+        break;
+    case '*':
+        result = num1 * num2
+        console.log('The result is ' + result)
+        break;
+    case '/':
+        if (num2 != 0) result = num1 / num2
+        else result = "You can't divide by 0"
+        console.log('The result is ' + result)
+        break;
+
+    default: 
+        console.log('Unknown operation, please enter correct operator');
+    
+}
