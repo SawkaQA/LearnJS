@@ -66,7 +66,7 @@ if (firstMonth === 'August' || secondMoth === 'July') {
 }
 
 
-let person = {
+let persons = {
     salary: 1000,
     age: 25,
     info: [
@@ -77,11 +77,11 @@ let person = {
 } 
 
 
-for (key in person) {
-    if (Array.isArray(person[key])) {
-      person[key].forEach(val => console.log(val));
+for (key in persons) {
+    if (Array.isArray(persons[key])) {
+      persons[key].forEach(val => console.log(val));
   } else {
-  console.log(`${key}: ${person[key]}`);
+  console.log(`${key}: ${persons[key]}`);
    }
   }
 
@@ -129,3 +129,52 @@ function deepCount(a){
 function deepCount(a){
     return a.reduce((s,e)=>s+(Array.isArray(e) ? deepCount(e) : 0),a.length);
 }
+
+
+
+// Задача с персонажем и HP
+
+const person = {
+    hp: 100,
+    mp: 100,
+  };
+  
+  const potions = [
+    { id: 1, type: 'POSITIVE', attribute: 'HP', value: 10 },
+    { id: 2, type: 'POSITIVE', attribute: 'MP', value: 10 },
+    { id: 3, type: 'NEGATIVE', attribute: 'HP', value: 5 },
+    { id: 4, type: 'NEGATIVE', attribute: 'MP', value: 5 },
+  ];
+  
+  const inventory = [
+    { potionId: 1, count: 5 },
+    { potionId: 2, count: 4 },
+    { potionId: 3, count: 3 },
+    { potionId: 4, count: 2 },
+  ];
+  
+  for (let i = 0; i < inventory.length; i++) {
+    const stack = inventory[i];
+    let potion;
+  
+    for (let k = 0; k < potions.length; k++) {
+      if (potions[k].id === stack.potionId) {
+        potion = potions[k];
+      }
+    }
+  
+    for (let j = 0; j < stack.count; j++) {
+      const multiplier = potion.type === 'NEGATIVE' ? -1 : 1;
+  
+      switch (potion.attribute) {
+        case 'HP':
+          person.hp += multiplier * potion.value;
+          break;
+        case 'MP':
+          person.mp += multiplier * potion.value;
+          break;
+      }
+    }
+  }
+  
+  console.log(person)
